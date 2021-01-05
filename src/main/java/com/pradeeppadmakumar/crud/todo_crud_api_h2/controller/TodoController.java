@@ -26,4 +26,11 @@ public class TodoController {
         Todo todo = todoService.findById(id);
         return new ResponseEntity<Todo>(todo, HttpStatus.OK);
     }
+
+    @PostMapping("/todo")
+    public ResponseEntity<Todo> createTodo(@RequestBody Todo todo) {
+        todo.setId(null);
+        todo = todoService.save(todo);
+        return new ResponseEntity<Todo>(todo, HttpStatus.CREATED);
+    }
 }

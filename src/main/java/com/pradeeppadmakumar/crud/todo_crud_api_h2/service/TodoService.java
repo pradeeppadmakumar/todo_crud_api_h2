@@ -18,6 +18,10 @@ public class TodoService {
     }
 
     public Todo findById(Long id) {
-        return todoRepository.findById(id).orElseThrow(() -> new ResourceNotFoundException("Todo not exist with id :" + id));
+        return todoRepository.findById(id).orElseThrow(() -> new ResourceNotFoundException("Todo does not exist with id :" + id));
+    }
+
+    public Todo save(Todo todo) {
+        return todoRepository.save(todo);
     }
 }
